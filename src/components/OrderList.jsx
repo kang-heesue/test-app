@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import axios from 'axios'
 import { tokenState } from '../state'
+import OrderItem from './OrderItem'
 
 function ItemList() {
   const token = useRecoilValue(tokenState)
@@ -10,8 +11,9 @@ function ItemList() {
   const [content, setContent] = useState([])
 
   useEffect(() => {
+    if (!token) return
     axios
-      .get(`https://mycroft-test-api.herokuapp.com/order?page=${currentPage}`, {
+      .get(`/order?page=${currentPage}`, {
         headers: {
           authorization: token,
           'Content-Type': 'application/json',
@@ -29,12 +31,7 @@ function ItemList() {
   return (
     <div>
       {content.map((item) => {
-        return (
-          <>
-            <div>{item.id}</div>
-            <div>{item.itemName}</div>
-          </>
-        )
+        return <OrderItem item={item} />
       })}
     </div>
   )
