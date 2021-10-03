@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import '../styles/OrderItem.css'
 
 function OrderItem(props) {
   console.log(props)
   return (
-    <div>
-      <div>{props.item.id}</div>
-      <div>{props.item.itemName}</div>
+    <div className={props.className}>
+      <div className="item-id">{props.item.id}</div>
+      <div className="item-name">{props.item.itemName}</div>
     </div>
   )
 }
 
 OrderItem.propTypes = {
-  id: PropTypes.number,
+  className: PropTypes.string,
   onClick: PropTypes.func,
 }
 

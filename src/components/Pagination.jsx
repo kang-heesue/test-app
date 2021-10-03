@@ -1,16 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import '../styles/Pagination.css'
 
-function Pagination() {
+function Pagination(props) {
+  const handleClickPage = () => {
+    props.paginate(props.currentPage)
+  }
+
   return (
-    <div>
-      <div></div>
+    <div className="page" onClick={handleClickPage}>
+      {props.page}
     </div>
   )
 }
 
 Pagination.propTypes = {
-  id: PropTypes.number,
+  paginate: PropTypes.func,
+  onClick: PropTypes.func,
+  key: PropTypes.number,
 }
 
 export default Pagination

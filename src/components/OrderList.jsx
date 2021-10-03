@@ -3,6 +3,8 @@ import { useRecoilValue } from 'recoil'
 import axios from 'axios'
 import { tokenState } from '../state'
 import OrderItem from './OrderItem'
+import Pagination from './Pagination'
+import '../styles/OrderList.css'
 
 function ItemList() {
   const token = useRecoilValue(tokenState)
@@ -28,11 +30,31 @@ function ItemList() {
       .catch((err) => console.log(err))
   }, [currentPage, token])
 
+  const pageNum = []
+  for (let i = 1; i <= totalPages; i++) {
+    pageNum.push(i)
+  }
+
   return (
-    <div>
-      {content.map((item) => {
-        return <OrderItem item={item} />
-      })}
+    <div className="order-list">
+      <div>
+        {content.map((item) => {
+          return <OrderItem className="item" item={item} />
+        })}
+      </div>
+      <div id="order-page">
+        {pageNum.map((page) => {
+          return (
+            <Pagination
+              page={page}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              pageNum={pageNum}
+              paginate={setCurrentPage}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }
