@@ -22,7 +22,6 @@ function ItemList() {
         },
       })
       .then((res) => {
-        console.log('mypage: ', res)
         setCurrentPage(res.data.currentPage)
         setTotalPages(res.data.totalPages)
         setContent(res.data.content)
@@ -31,7 +30,7 @@ function ItemList() {
   }, [currentPage, token])
 
   const pageNum = []
-  for (let i = 1; i <= totalPages; i++) {
+  for (let i = 0; i < totalPages; i++) {
     pageNum.push(i)
   }
 
@@ -39,7 +38,7 @@ function ItemList() {
     <div className="order-list">
       <div>
         {content.map((item) => {
-          return <OrderItem className="item" item={item} />
+          return <OrderItem item={item} />
         })}
       </div>
       <div id="order-page">
@@ -48,8 +47,6 @@ function ItemList() {
             <Pagination
               page={page}
               currentPage={currentPage}
-              totalPages={totalPages}
-              pageNum={pageNum}
               paginate={setCurrentPage}
             />
           )

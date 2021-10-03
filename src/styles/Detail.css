@@ -1,0 +1,11 @@
+#detail_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 35px;
+}
+
+#detail_id {
+  margin-right: 50px;
+}

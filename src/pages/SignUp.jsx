@@ -68,7 +68,6 @@ function SignUp() {
         },
       )
       .then((res) => {
-        console.log('signup:', res)
         history.push('/')
       })
       .catch((err) => {

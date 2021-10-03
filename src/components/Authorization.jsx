@@ -25,7 +25,7 @@ function Authorization() {
     }
   }, [setIsLogin, setToken])
 
-  return null
+  return <></>
 }
 
 export default Authorization

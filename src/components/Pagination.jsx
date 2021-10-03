@@ -4,12 +4,12 @@ import '../styles/Pagination.css'
 
 function Pagination(props) {
   const handleClickPage = () => {
-    props.paginate(props.currentPage)
+    props.paginate(props.page)
   }
 
   return (
     <div className="page" onClick={handleClickPage}>
-      {props.page}
+      {props.page + 1}
     </div>
   )
 }
@@ -17,7 +17,7 @@ function Pagination(props) {
 Pagination.propTypes = {
   paginate: PropTypes.func,
   onClick: PropTypes.func,
-  key: PropTypes.number,
+  page: PropTypes.number,
 }
 
 export default Pagination
