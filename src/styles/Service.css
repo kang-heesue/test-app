@@ -1,0 +1,18 @@
+#service_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.service_image {
+  width: 500px;
+  margin: 50px 0px;
+  align-self: center;
+}
+
+.service_order {
+  width: 130px;
+  height: 60px;
+  font-size: 20px;
+  align-self: center;
+  cursor: pointer;
+}
